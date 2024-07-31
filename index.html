@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Location Viewer</title>
+		<style>
+			body {
+				font-family: Arial, sans-serif;
+				text-align: center;
+				margin-top: 50px;
+			}
+			h1 {
+				font-size: 3em;
+			}
+		</style>
+	</head>
+	<body>
+		<h1 id="location"></h1>
+
+		<script>
+			// Get the user's location
+			navigator.geolocation.getCurrentPosition(function (position) {
+				var latitude = position.coords.latitude;
+				var longitude = position.coords.longitude;
+				var locationText =
+					'Latitude: ' +
+					latitude.toFixed(4) +
+					', Longitude: ' +
+					longitude.toFixed(4);
+				document.getElementById('location').textContent = locationText;
+			});
+		</script>
+	</body>
+</html>
